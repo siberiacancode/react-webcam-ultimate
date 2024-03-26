@@ -5,7 +5,6 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "lint-staged": {},
     "stylelint": {},
     "format": {},
     "lint": {},

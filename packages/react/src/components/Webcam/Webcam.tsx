@@ -1,10 +1,10 @@
 import type { ComponentPropsWithoutRef, FC, ReactNode, RefObject, SyntheticEvent } from 'react';
 import React, { useEffect, useRef } from 'react';
+import type { GetVideoFrameCanvasOptions, GetWebcamSnapshotOptions } from '@webcam/core';
+import { getVideoFrameCanvas, getWebcamSnapshot } from '@webcam/core';
 
-import type { UseMediaStreamParams } from '../../utils/hooks';
+import type { UseMediaStreamParams } from '@/utils/hooks';
 
-import type { GetVideoFrameCanvasOptions, GetWebcamSnapshotOptions } from './helpers';
-import { getVideoFrameCanvas, getWebcamSnapshot } from './helpers';
 import { useWebcam } from './hooks';
 
 type VideoElementProps = Omit<ComponentPropsWithoutRef<'video'>, 'children'>;
@@ -36,10 +36,10 @@ type WebcamPropsEnumeration = WebcamPropsWithExternalStream &
 export type WebcamProps = WebcamPropsWithInternalStream | WebcamPropsWithExternalStream;
 
 /**
- * Renders the Webcam component and handles the requesting and displaying of the media stream.
+ * Renders the Webcam component and handles the requesting and displaying of the media stream
  *
- * @param {WebcamProps} props - The props for the Webcam component.
- * @return {ReactElement} The rendered Webcam component.
+ * @param {WebcamProps} props - The props for the Webcam component
+ * @return {ReactElement} The rendered Webcam component
  */
 export const Webcam: FC<WebcamProps> = ({
   innerRef: externalVideoRef,

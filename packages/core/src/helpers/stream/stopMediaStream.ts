@@ -1,4 +1,11 @@
-export const stopMediaStream = (stream: MediaStreamTrack | MediaStream) => {
+/**
+ * Stops and removes audio and video tracks from the stream
+ *
+ * @return {void}
+ */
+export const stopMediaStream = (stream?: MediaStreamTrack | MediaStream) => {
+  if (!stream) return;
+
   if (stream instanceof MediaStreamTrack) {
     stream.stop();
     return;

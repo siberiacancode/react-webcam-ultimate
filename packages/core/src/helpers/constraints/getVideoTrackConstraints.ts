@@ -35,6 +35,12 @@ export interface VideoTrackConstraintsOptions {
   frontCamera?: boolean;
 }
 
+/**
+ * Generates and returns video track constraints by passed options
+ *
+ * @param {GetMediaStreamConstraintsParams} options - options for constraints generating
+ * @return {Promise<MediaStreamConstraints>} video track constraints
+ */
 export const getVideoTrackConstraints = async (
   externalConstraints: MediaTrackConstraints,
   {

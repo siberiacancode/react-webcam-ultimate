@@ -1,15 +1,22 @@
 import { hasGetUserMedia } from './hasGetUserMedia';
 
-// ✅ important
-// Implementations for each browser need to be supported
+/**
+ * Legacy per-browser implementation of Navigator.getUserMedia
+ *
+ * @return {Navigator['getUserMedia'] | undefined}
+ */
 export const getUserMediaFunction =
-  navigator.getUserMedia ||
-  navigator.webkitGetUserMedia ||
-  navigator.mozGetUserMedia ||
-  navigator.msGetUserMedia;
+  typeof window !== 'undefined' &&
+  (navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia);
 
-// ✅ important
-// Polyfill to support legacy web-api
+/**
+ * Adds extra error handling and support for legacy getUserMedia implementation
+ *
+ * @return {Promise<MediaStream>}
+ */
 export const getUserMedia = (constraints: MediaStreamConstraints): Promise<MediaStream> => {
   if (!hasGetUserMedia()) {
     if (!getUserMediaFunction) {

@@ -1,7 +1,16 @@
 import { useEffect, useRef } from 'react';
 
+import { cancelAnimationFrame, requestAnimationFrame } from '../helpers';
+
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
+/**
+ * Helps request and cancel animation frame
+ *
+ * @param {Function} callback - frame request callback
+ * @param {boolean} active - should animation frame be requested
+ * @return {Object} request/cancel animation frame handlers
+ */
 export const useAnimationFrame = (callback: (time: number) => void, active?: boolean) => {
   const animationFrameRequestRef = useRef<number>();
   const previousTimestampRef = useRef<number>();

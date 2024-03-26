@@ -1,12 +1,11 @@
 import { useEffect, useRef } from 'react';
-
-import type { GetMediaStreamConstraintsParams, MediaTrackConstraintsOptions } from '../helpers';
+import type { GetMediaStreamConstraintsParams, MediaTrackConstraintsOptions } from '@webcam/core';
 import {
   applyMediaStreamConstraints,
   getMediaStream,
   getMediaStreamConstraints,
   stopMediaStream
-} from '../helpers';
+} from '@webcam/core';
 
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
@@ -22,6 +21,12 @@ export interface UseMediaStreamParams extends MediaTrackConstraintsOptions {
   onStreamStop?: (stream?: MediaStream) => void;
 }
 
+/**
+ * Returns and manages the media stream in accordance with the passed parameters for configuration
+ *
+ * @param {UseMediaStreamParams} params - parameters for receiving media stream
+ * @return {MediaStream | undefined} media stream instance
+ */
 export const useMediaStream = ({
   onStreamRequest,
   onStreamError,
@@ -72,7 +77,7 @@ export const useMediaStream = ({
       }
     };
 
-    const requesMediaStream = async (params: GetMediaStreamConstraintsParams) => {
+    const requestMediaStream = async (params: GetMediaStreamConstraintsParams) => {
       try {
         handlerRef.current.request?.();
 
@@ -88,14 +93,13 @@ export const useMediaStream = ({
     if (applyConstraints && runningStream) {
       getMediaStreamConstraints(streamConstraintsParams)
         .then((constraints) => applyMediaStreamConstraints(runningStream, constraints))
-        .catch(() => requesMediaStream(streamConstraintsParams));
+        .catch(() => requestMediaStream(streamConstraintsParams));
     } else {
-      requesMediaStream(streamConstraintsParams);
+      requestMediaStream(streamConstraintsParams);
     }
 
     return () => {
       handlerRef.current.stop?.(runningStream);
-      if (!runningStream) return;
       stopMediaStream(runningStream);
     };
   }, [

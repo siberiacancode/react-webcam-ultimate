@@ -1,8 +1,11 @@
 import { getUserMediaFunction } from './getUserMedia';
 import { hasGetUserMedia } from './hasGetUserMedia';
 
-// ✅ important
-// In mobile browser work only for https://
+/**
+ * Checks the possibility of using any implementation of getUserMedia
+ *
+ * @return {boolean}
+ */
 export const canGetUserMedia = () => {
   if (typeof navigator === 'undefined') return false;
 

@@ -1,76 +1,23 @@
-# 📸 React Webcam Ultimate
+# 📸 Webcam
 
-Ultimate tool for working with media stream and displaying it in your React application
+Ultimate tools for working with media stream from you webcam.
 
-## Installation
+## 🦉 Philosophy
 
-Install with [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+We provide ready-made solutions for common cases of setting up and using a media stream from your webcam using Web API. Our goal is to create simple and flexible tools that allow users to create, test and maintain their products.
 
-```shell
-npm i react-webcam-ultimate
-# or
-yarn add react-webcam-ultimate
-```
+## 📦 Packages
+- [webcam/core](packages/core/README.md) is a library of helpers for working with a stream, including its constraints configuration, error handling, cross-browser compatibility, etc
+- [webcam/react](packages/react/README.md) is a library of hooks and one component for work with a stream and displaying it in your React application
 
-## Usage
+## 🔮 Demo
+Demonstration of certain capabilities of each of the listed packages can be found [here](https://react-webcam-ultimate.vercel.app).
 
-```jsx
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Webcam } from 'react-webcam-ultimate';
+## 🛠️ Changelog
+The [changelog](https://github.com/siberiacancode/react-webcam-ultimate/releases) is regularly updated to reflect what's changed in each new release.
 
-const App = () => (
-  <Webcam />
-);
+## 🎫 License
+This project is licensed under the terms of the [MIT license](LICENSE).
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App/>);
-```
-
-### Get webcam snapshot
-
-```jsx
-import { Webcam } from 'react-webcam-ultimate';
-
-const YourComponent = () => (
-  <Webcam mirrored>
-    {({ getSnapshot }) => (
-      <button onClick={() => getSnapshot({ quality: 0.8 })}>
-        Make photo
-      </button>
-    )}
-  </Webcam>
-);
-```
-
-## API
-
-You can pass any supported [properties](https://developer.mozilla.org/ru/docs/Web/HTML/Element/video) to the underlying video tag (eg `autoplay`, `className`, etc). However, for convenience, the component uses its own values for these properties, but you can reassign them without any problems:
-| **Prop**                  | **Type** | **Default**  |
-| ------------------------- | -------- | ------------ |
-| muted                     | boolean  | true         |
-| autoPlay                  | boolean  | true         |
-| playsInline               | boolean  | true         |
-| controls                  | boolean  | false        |
-
-The component also supports many properties for more specific work:
-| **Prop**                  | **Type** | **Default**  | **Note**                                                                                |
-| ------------------------- | -------- | ------------ | --------------------------------------------------------------------------------------- |
-| stream                    | boolean  |              | external media stream (turns off internal media stream handling logic)                  |
-| mirrored                  | boolean  | false        | show camera preview and get the screenshot mirrored                                     |
-| mainCamera                | boolean  | false        | should use a main camera (requires Navigator.mediaDevices.enumerateDevices)             |
-| frontCamera               | boolean  | false        | should use a front camera (MediaTrackConstraints['facingFront'] === 'user')             |
-| applyConstraints          | boolean  | false        | should new constraints be applied to the media stream                                   |
-| cameraResolutionType      | string   |              | video track resolution size - 'UHD' | 'QHD' | 'FHD' | 'HD'                              |
-| cameraResolutionMode      | string   | 'ideal'      | video track resolution mode - 'min' | 'max' | 'ideal' | 'exact'                         |
-| audioConstraints          | object   |              | audio track constraints - MediaStreamConstraints['audio']                               |
-| videoConstraints          | object   |              | video track constraints - MediaStreamConstraints['video']                               |
-| requestTimeLimit          | number   |              | limiting the media stream request by time                                               |
-| onStreamRequest           | function |              | callback for when component requests a media stream                                     |
-| onStreamStart             | function |              | callback for when component starts a media stream                                       |
-| onStreamStop              | function |              | callback for when component stops a media stream                                        |
-| onStreamError             | function |              | callback for when component can't receive a media stream                                |
-
-
-
-
+## 🔒 Security
+For details of supported versions and contact details for reporting security issues, please refer to the [security policy](SECURITY.md).

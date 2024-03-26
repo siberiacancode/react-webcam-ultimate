@@ -1,15 +1,15 @@
 import type { RefObject } from 'react';
 import { useRef, useState } from 'react';
 
-import type { UseMediaStreamParams } from '../../../utils/hooks';
-import { useIsomorphicLayoutEffect, useMediaStream } from '../../../utils/hooks';
+import type { UseMediaStreamParams } from '@/utils/hooks';
+import { useIsomorphicLayoutEffect, useMediaStream } from '@/utils/hooks';
 
 /**
- * Helps get/set the media stream source for a video element..
+ * Helps get/set the media stream source for a video element
  *
- * @param {RefObject<HTMLVideoElement>} videoRef - video element reference object.
- * @param {UseMediaStreamParams} params - parameters for receiving media stream.
- * @return {string | undefined} media stream source.
+ * @param {RefObject<HTMLVideoElement>} videoRef - video element reference object
+ * @param {UseMediaStreamParams} params - parameters for receiving media stream
+ * @return {string | undefined} media stream source
  */
 export const useWebcam = (
   videoRef: RefObject<HTMLVideoElement>,

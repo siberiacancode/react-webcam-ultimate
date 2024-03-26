@@ -4,6 +4,13 @@ import { getMediaStreamConstraints } from '../constraints';
 import { canGetUserMedia } from './canGetUserMedia';
 import { getUserMedia } from './getUserMedia';
 
+/**
+ * Accepts custom parameters and uses getUserMedia to get an instance of the media stream
+ *
+ * @param {GetMediaStreamConstraintsParams} params - options for constraints generating
+ * @param {GetMediaStreamConstraintsParams} timeLimitMs - Time limit for MediaStream request execution
+ * @return {Promise<MediaStream>} media stream instance
+ */
 export const getMediaStream = async (
   params?: GetMediaStreamConstraintsParams,
   timeLimitMs?: number

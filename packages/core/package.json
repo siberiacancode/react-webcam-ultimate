@@ -1,7 +1,7 @@
 {
-  "name": "@webcam/react",
+  "name": "@webcam/core",
   "version": "0.0.0",
-  "description": "Ultimate tool for working with media stream and displaying it in your React application",
+  "description": "Ultimate tool for working with media stream",
   "author": {
     "name": "SIBERIA CAN CODE 🧊",
     "url": "https://github.com/siberiacancode"
@@ -27,7 +27,6 @@
   "keywords": [
     "media",
     "video",
-    "react",
     "canvas",
     "camera",
     "webcam",
@@ -37,7 +36,6 @@
     "screenshot",
     "constraints",
     "getUserMedia",
-    "react-webcam",
     "webcam-canvas"
   ],
   "publishConfig": {
@@ -59,53 +57,27 @@
   },
   "scripts": {
     "build": "shx rm -rf dist && rollup -c --bundleConfigAsCjs",
-    "lint": "eslint . --ext ts --ext tsx --no-error-on-unmatched-pattern --fix",
-    "format": "prettier --write **/*.{ts,tsx,js,jsx}",
+    "lint": "eslint . --ext ts --no-error-on-unmatched-pattern --fix",
+    "format": "prettier --write **/*.{js,ts}",
     "type": "tsc --noEmit",
-    "pretty": "yarn type && yarn format && yarn lint",
-    "unit-test": "jest",
-    "storybook": "storybook dev -p 6011"
+    "pretty": "yarn type && yarn format && yarn lint"
   },
   "lint-staged": {
     "*.js": "prettier --write",
-    "*.{ts,tsx}": [
+    "*.ts": [
       "prettier --write",
       "eslint --no-error-on-unmatched-pattern --fix"
     ]
-  },
-  "peerDependencies": {
-    "@types/react": "^18.0.0",
-    "@webcam/core": "*",
-    "react": "^17.0.2 || ^18.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@types/react": {
-      "optional": true
-    }
   },
   "devDependencies": {
     "@siberiacancode/builder": "^1.3.0",
     "@siberiacancode/eslint": "^1.1.0",
     "@siberiacancode/prettier": "^1.1.0",
-    "@storybook/addon-actions": "^7.6.16",
-    "@storybook/addon-essentials": "^7.6.16",
-    "@storybook/addon-interactions": "^7.6.16",
-    "@storybook/addon-links": "^7.6.16",
-    "@storybook/react": "^7.6.16",
-    "@storybook/react-vite": "^7.6.16",
-    "@storybook/testing-library": "^0.2.2",
     "@types/node": "^20.11.19",
-    "@types/react": "^18.2.56",
-    "babel-loader": "^9.1.3",
-    "babel-plugin-react-require": "^4.0.2",
     "eslint": "^8.56.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "shx": "^0.3.4",
-    "storybook": "^7.6.16",
-    "typescript": "^5.3.3",
-    "vite": "^5.1.3"
+    "typescript": "^5.3.3"
   }
 }

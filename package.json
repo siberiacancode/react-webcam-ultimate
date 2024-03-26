@@ -38,19 +38,18 @@
     "deploy": "turbo run deploy",
     "lint": "turbo run lint",
     "format": "turbo run format",
-    "unit-test": "turbo run unit-test",
     "pretty": "turbo run pretty",
-    "lint-staged": "turbo run lint-staged",
+    "unit-test": "turbo run unit-test",
     "change": "beachball change --no-commit",
-    "release": "beachball publish --yes",
-    "prepare": "husky install && npm run build"
+    "release": "beachball publish --no-bump-deps --bump-deps=false",
+    "prepare": "husky install && turbo telemetry disable"
   },
   "devDependencies": {
     "@siberiacancode/prettier": "^1.1.0",
     "beachball": "^2.39.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
-    "turbo": "^1.12.4",
-    "prettier": "^3.2.5"
+    "prettier": "^3.2.5",
+    "turbo": "^1.12.5"
   }
 }

@@ -1,3 +1,8 @@
+/**
+ * Applies a set of audio and video constraints to the corresponding media stream tracks
+ *
+ * @return {Promise<void>}
+ */
 export const applyMediaStreamConstraints = async (
   stream: MediaStream,
   { video, audio }: MediaStreamConstraints

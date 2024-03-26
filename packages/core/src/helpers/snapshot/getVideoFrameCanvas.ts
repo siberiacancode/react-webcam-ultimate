@@ -5,6 +5,13 @@ export interface GetVideoFrameCanvasOptions {
   width?: number;
 }
 
+/**
+ * Returns a canvas with a drawn image of the current video stream frame in accordance with the passed options
+ *
+ * @param {HTMLVideoElement} source - video element instance with provided media stream
+ * @param {GetVideoFrameCanvasOptions} options - options for getting video frame canvas
+ * @return {HTMLCanvasElement | undefined} video stream frame canvas
+ */
 export const getVideoFrameCanvas = (
   source: HTMLVideoElement,
   { imageSmoothingEnabled = true, mirrored, ...options }: GetVideoFrameCanvasOptions = {}

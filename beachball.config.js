@@ -1,6 +1,6 @@
 /** @type {import('beachball').BeachballConfig} */
 module.exports = {
-  bumpDeps: true,
+  bumpDeps: false,
   access: 'public',
   branch: 'origin/main'
 };

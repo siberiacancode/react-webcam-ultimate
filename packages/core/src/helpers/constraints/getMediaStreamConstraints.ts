@@ -11,6 +11,12 @@ export interface GetMediaStreamConstraintsParams {
   constraints?: MediaStreamConstraints;
 }
 
+/**
+ * Generates and returns media stream constraints by passed options
+ *
+ * @param {GetMediaStreamConstraintsParams} params - parameters for constraints generating
+ * @return {Promise<MediaStreamConstraints>} media stream constraints
+ */
 export const getMediaStreamConstraints = async ({
   constraints: { video = true, audio = false, ...otherConstraints } = {},
   options: { muted = false, ...options } = {}

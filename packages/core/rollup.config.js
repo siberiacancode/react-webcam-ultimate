@@ -6,7 +6,7 @@ export default generateRollupConfig({
   pkg,
   configs: {
     babel: {
-      plugins: ['react-require', '@babel/plugin-transform-runtime'],
+      plugins: ['@babel/plugin-transform-runtime'],
       babelHelpers: 'runtime'
     }
   }
